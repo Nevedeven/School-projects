@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Degrees to Centigrade</title>
+  <script>
+    /* <![CDATA[ */
+    var FDegrees;
+function convertToCentigrade (degFahren)
+{
+  var degCent;
+  degCent = (5/9) * (degFahren - 32);
+  
+  return degCent;
+}
+	/* ]]> */
+  </script>
+</head>
+
+<body>
+   <script>
+   //alert("The degrees Centigrade are " + degCent);
+    /* <![CDATA[ */
+    FDegrees = prompt("Type in a Fahrenheit degree to be converted to Centigrade", "");
+    /* ]]> */
+  </script>
+<h3>
+  <script>
+    /* <![CDATA[ */
+    document.write(FDegrees);
+    /* ]]> */
+  </script>
+  degrees F is
+  <script>
+    /* <![CDATA[ */
+    document.write(convertToCentigrade(FDegrees));
+    /* ]]> */
+  </script>
+  degrees C.
+</h3>
+</body>
+</html>

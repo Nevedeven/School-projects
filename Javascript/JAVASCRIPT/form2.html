@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+    <title>Form 2</title>
+	<link rel="stylesheet" type="text/css" href="myStyles.css" />
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <script type="text/javascript">
+      /* <![CDATA[ */
+      function validateForm(f)
+      {
+        var returnValue = true;
+        var alertMsg = new Array();
+        if (f.firstName.value == "")
+        {
+          alertMsg[0] = "\tYour first name.\n";
+          returnValue = false;
+        }
+		
+        if (f.lastName.value == "")
+        {
+          alertMsg[1] = "\tYour last name.\n";
+          returnValue = false;
+        }
+		
+        if (f.numpets.value == "")
+        {
+		  alertMsg[2] = "\tThe number of pets you own.\n";
+		  returnValue = false;
+        }
+		else if (isNaN(parseInt(f.numpets.value)) || parseInt(f.numpets.value)<0)
+		  {
+			alertMsg[2] = "\tThe real number of pets you own.\n";
+		  }
+		   
+        var teamSelected = false;
+        for (var i = 0; i < f.FavoriteTeam.length; i++)
+        {
+          if (f.FavoriteTeam[i].checked)
+          {
+            teamSelected = true;
+          }
+        }
+        if (teamSelected == false)
+        {
+		  alertMsg[3] = "\tThe team you favor for the SuperBowl.";
+          returnValue = false;
+        }
+		
+		var alertString = "You didn't tell me these things:\n";
+		for(var s in alertMsg)
+		{
+			if(alertMsg[s])
+				alertString += alertMsg[s];
+		}
+		
+		if(!returnValue)
+			alert(alertString);
+		return returnValue;
+	}	
+      /* ]]> */
+    </script>
+</head>
+
+<body>
+<div align="left">
+  <form 
+    name="myForm"
+    id="myForm"
+    method="get" 
+    action="ThankYou.html"
+    onsubmit = "return validateForm(this);">
+    
+    <table border="0" cellpadding="10" cellspacing="0">
+      <tr>
+        <td align="right">Hi, what's your name?:</td>
+        <td><input
+              type="text"
+              name="firstName"
+              size="40"
+              maxlength="40" /></td>
+        <td><input
+              type="text"
+              name="lastName"
+              size="40"
+              maxlength="40" /></td>
+      </tr>
+      <tr>
+        <td align="right">How many pets do you have?:</td>
+        <td><input
+              type="text"
+              name="numpets"
+              size="40"
+              maxlength="40" /></td>
+      </tr>
+      <tr>
+        <td align="right" valign="top">Interesting. Now, who do you think is going to win the SuperBowl?:</td>
+        <td><input type="radio" 
+             name="FavoriteTeam" 
+             value="Joey Bonzo" />Joseph Bonzoli
+            <br />
+            <input type="radio" 
+             name="FavoriteTeam" 
+             value="The Thundercats" />The Thundercats
+            <br />
+            <input type="radio" 
+             name="FavoriteTeam" 
+             value="Iron Man II" />Iron Man II</td>
+      </tr>
+      <tr>
+        <td colspan="2" align="center">
+          <input type="submit" value="Submit the Form Data" /></td>
+      </tr>
+    </table>
+  </form>
+</div>
+</body>
+</html>

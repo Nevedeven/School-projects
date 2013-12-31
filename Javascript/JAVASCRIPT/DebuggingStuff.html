@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Debugging Homework</title>
+  <link rel="stylesheet" type="text/css" href="myStyles.css" />
+  <script>
+    /* <![CDATA[ */
+    function positionCursor()
+    {
+      document.getElementById("FirstNumber").focus();
+    }
+    
+    function addNumbers()
+    {
+      var firstNum = parseFloat(document.getElementById("FirstNumber").value);
+      var secondNum = parseFloat(document.getElementById("SecondNumber").value);
+      var theSum = firstNum + secondNum;
+      alert("The sum is " + theSum);
+    }
+    /* ]]> */
+  </script>
+</head>
+
+<body onload="positionCursor();">
+<h3 style="text-align:center;">Debugging Homework</h3>
+<div style="text-align:left;">
+  <form name="myForm" action="" method="post" onsubmit="addNumbers(); return false">
+  <table border="0" cellpadding="10">
+    <tr>
+      <td>Type a number: </td>
+      <td><input type="text" name="FirstNumber" id="FirstNumber" /></td>
+    </tr>
+    <tr>
+      <td>Type another number: </td>
+      <td><input type="text" name="SecondNumber" id="SecondNumber" /></td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center"><input type="submit" value="Add the numbers" /></td>
+    </tr>
+  </table>
+  </form>
+  <p> fixed a quote mismatch on function "positionCursor()",<br /> made the 'a' in "alert()" lowercase,<br /> Capitalized the 'n' in "secondNum" on the third line of function: "addNumbers()"</p> 
+</div>
+<footer><ul><li><a href= "Index.html">Backwords. Backwards. Backwurds. Backwirds. Backwerds. Backwyrds.</a></li></ul></footer>
+</body>
+</html>

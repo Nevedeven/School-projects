@@ -1,0 +1,194 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+  <title>Form Verification Example</title>
+  <style type="text/css">
+    body { font-family: Arial, sans-serif; }
+    td { padding-right: 20px; padding-top: 7px; vertical-align: top; }
+    .col1 { text-align: right; }
+  </style>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <script type="text/javascript" src="formValidation.js"></script>
+</head>
+<body>
+<!-- 
+   Here is a sample form to test our verification function.  Note that we
+   call verify() from the onsubmit() event handler, and return whatever
+   value it returns.  Also note that we use the onsubmit() handler as
+   an opportunity to set properties on the form objects that verify()
+   will use in the verification process.
+-->    
+  <form onsubmit = "this.firstname.required = true;
+        this.firstname.labelname = 'First Name';
+        this.lastname.required = true;
+        this.lastname.labelname = 'Last Name';
+        this.state.required = true;
+        this.state.labelname = 'State';
+        this.zipcode.required = true;
+        this.zipcode.zipcodefield = true;
+        this.zipcode.labelname = 'Zip Code';
+        this.email.required = true;
+        this.email.emailfield = true;
+        this.email.labelname = 'E-mail Address';
+		this.password.passwordfield = true;
+		this.password.required = true;
+		this.password.labelname = 'Password';
+		this.password.passwordStrength = 'weak';
+        this.phonenumber.required = true;
+        this.phonenumber.phonenumberfield = true;
+        this.phonenumber.labelname = 'Phone Number';
+        this.numberOfChildren.required = true;
+        this.numberOfChildren.numeric = true;
+        this.numberOfChildren.labelname = 'Number of Children';
+        this.numberOfChildren.min = 0;
+        this.rateThisExample.required = true;
+        this.rateThisExample.min = 1;
+        this.rateThisExample.max = 10;
+        this.rateThisExample.labelname = 'Rate this Example';
+        return verify(this);" method="get" action="ThankYou.html"
+        enctype="multipart/form-data">
+    <table border="0">
+      <tr>
+        <td class="col1">
+          First name: *
+        </td>
+        <td>
+          <input type="text" name="firstname" />
+        </td>
+      </tr>
+      <tr>
+        <td class="col1">
+          Last name: *
+        </td>
+        <td>
+          <input type="text" name="lastname" />
+        </td>
+      </tr>
+      <tr>
+        <td class="col1">
+          E-mail Address: *
+        </td>
+        <td>
+          <input type="text" name="email" />
+        </td>
+      </tr>
+	  <tr>
+		<td class="col1">
+		  Password: *
+		</td>
+		<td>
+		  <input type="password" name="password" />
+		</td>
+	  </tr>
+      <tr>
+        <td class="col1">
+          Phone Number: *
+        </td>
+        <td>
+          <input type="text" name="phonenumber" />
+        </td>
+      </tr>
+      <tr>
+        <td class="col1">
+          State: *
+        </td>
+        <td>
+          <select name="state">
+            <option value="">-- Select a State --</option>
+            <option value="AK">Alaska</option>
+            <option value="AR">Arkansas</option>
+            <option value="NC">North Carolina</option>
+            <option value="TX">Texas</option>
+            <option value="VA">Virginia</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td class="col1">
+          Zip Code: *
+        </td>
+        <td>
+          <input type="text" name="zipcode" />
+        </td>
+      </tr>
+      <tr>
+        <td class="col1">
+          Comments:
+        </td>
+        <td>
+          <textarea cols="40" rows="2" name="comments"></textarea>
+        </td>
+      </tr>
+      <tr>
+        <td class="col1">
+          Number of children: (enter the number 0 if none) *
+        </td>
+        <td valign="top">
+          <input type="text" name="numberOfChildren" />
+        </td>
+      </tr>
+      <tr>
+        <td class="col1">
+          Rate this example on a scale of 1 to 10: *
+        </td>
+        <td valign="top">
+          <input type="text" name="rateThisExample" />
+        </td>
+      </tr>
+      <tr>
+        <td class="col1">
+          Your Gender: *
+        </td>
+        <td>
+          <input type="radio" name="Your_Gender" value="Male" title="required" />
+            Male
+          <br/>
+          <input type="radio" name="Your_Gender" value="Female" />
+            Female
+        </td>
+      </tr>
+      <tr>
+        <td class="col1">
+          Pets you Like: *
+        </td>
+        <td valign="top">
+          <input type="checkbox" name="Pets_you_Like" value="Dogs" title="required" />
+           Dogs
+          <br/>
+          <input type="checkbox" name="Pets_you_Like" value="Cats" />
+            Cats
+          <br/>
+          <input type="checkbox" name="Pets_you_Like" value="Birds" />
+            Birds
+          <br/>
+          <input type="checkbox" name="Pets_you_Like" value="Fish" />
+            Fish
+          <br/>
+          <input type="checkbox" name="Pets_you_Like" value="None" />
+            None of the above
+          <br/>
+        </td>
+      </tr>
+      <tr>
+        <td class="col1">
+          (* = Required field)
+        </td>
+        <td>
+           
+        </td>
+      </tr>
+      <tr>
+        <td class="col1">
+          <input type="submit" value="Submit" />
+        </td>
+        <td>
+          <input type="reset" value="Clear form" />
+        </td>
+      </tr>
+    </table>
+  </form>
+</body>
+</html>

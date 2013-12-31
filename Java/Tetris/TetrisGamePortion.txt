@@ -1,0 +1,193 @@
+//Coord, Grid, and Block go into Game. Game, Score, and Line go into GridWorks.
+
+public class Coord{
+	private int x = 0;
+	private int y = 0;
+	
+	public Coord(int xi, int yi){
+		x=xi+5;
+		y=yi+20;
+	}
+	
+	public void down(){
+		y--;
+	}
+	
+	public void left(){
+		x--;
+	}
+	
+	public void right(){
+		x++;
+	}
+	
+}
+
+/**
+ * @(#)Grid.java
+ *
+ *
+ * @author 
+ * @version 1.00 2012/5/7
+ */
+import java.util.*;
+
+public class Grid {
+	int[][] grid;
+	Queue<Block> next;
+
+    public Grid() {
+	grid = new int[10][23];
+	next = new LinkedList<Block>();
+    	
+    }
+    
+    
+    public int[][] getGrid(){
+    	return grid;
+    }
+    
+    public PriorityQueue<Block> getBlocks(){
+    	switch (Math.random()*) {
+		  	case :
+		   	break;
+   			case :
+   			break;
+   			case :
+   			break;
+   			case :
+   			break;
+   			case :
+   			break;
+   			case :
+   			break;
+		}
+    }
+    
+    public void clearLine(){
+    }
+}
+------------------------------------
+/**
+ * @(#)Block.java
+ *
+ *
+ * @author 
+ * @version 1.00 2012/5/7
+ */
+import java.util.*;
+
+public class Block {
+    private Coord pivot = new Coord(0,0);
+    ArrayList<Coord> body = new ArrayList<Coord>();
+    
+    public Block(Coord c1, Coord c2, Coord c3){
+    	body.add(pivot);
+    	body.add(c1);
+    	body.add(c2);
+    	body.add(c3);
+    }
+    
+    public void left(){
+       	for(Coord c : body)
+    		c.left();	
+    }
+    
+    public void right(){
+    	for(Coord c : body)
+    		c.right();
+    }
+    
+    public void fall(){
+    	for(Coord c : body)
+    		c.down();
+    }
+    
+    public void land
+}
+------------------------------------------
+public class Game{
+	public boolean linecleared(){
+	}
+	public void 
+}
+
+/**
+ * @(#)Score.java
+ *
+ *
+ * @author 
+ * @version 1.00 2012/5/7
+ */
+
+
+public class Score {
+
+    public Score() {
+    }
+    
+    
+}
+
+/**
+ * @(#)Lines.java
+ *
+ *
+ * @author 
+ * @version 1.00 2012/5/7
+ */
+
+
+public class Lines {
+
+    public Lines() {
+    }
+    
+    
+}
+
+/**
+ * @(#)GridWorks.java
+ *
+ *
+ * @author Deven Tharp
+ * @version 1.00 2012/5/7
+ */
+import java.util.*;
+import javax.swing.*;
+import java.awt.*;
+public class GridWorks{
+	Grid field = new Grid();
+    public GridWorks() {
+    }
+    
+    public void play(){
+    	
+    }
+    
+    public Grid getFrame(){
+    	return field;
+    }
+}
+
+class Grid extends JFrame{
+	GridCanvas canvas = new GridCanvas();
+    public Grid() {
+    	
+    	setSize(600,900);
+    	setResizable(false);
+    	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    	add(canvas);
+    	
+    }
+    
+    
+}
+
+class GridCanvas extends JComponent{
+	public GridCanvas(){
+	}
+	public void paintComponent(Graphics g){
+		
+	}
+}

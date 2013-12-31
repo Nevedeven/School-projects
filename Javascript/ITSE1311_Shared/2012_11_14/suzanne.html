@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  
+  <title>Homework 11 - hide button</title>
+  <script src="formValidation.js"></script>
+  
+  <script type="text/javascript">
+  <!-- -->
+
+      /* <![CDATA[ */
+				 
+  function enableSubmit()
+   {
+	document.getElementById("submitButton").style.visibility = "visible";
+	document.getElementById("loadingGraphic").style.visibility = "hidden";
+   }
+   
+  function disableSubmit()
+   {
+	document.getElementById("submitButton").style.visibility = "hidden";
+	document.getElementById("loadingGraphic").style.visibility = "visible";
+   }
+   
+   /* ]]> */
+  </script>
+</head>
+ 
+<body onLoad="enableSubmit();">
+<!-- Sample form that asks for Name, Pets, and Teacher pick-->    
+
+  <!--<form method="post" action="http://www.jimlink.net/DelayFiveSeconds.cfm">-->
+  
+      <form novalidate onsubmit = "this.firstname.required = true;
+        this.firstname.labelname = 'First Name';
+        
+        this.lastname.required = true;
+        this.lastname.labelname = 'Last Name';
+        
+        this.email.required = true;
+        this.email.emailfield = true;
+        this.email.labelname = 'E-mail Address';
+        
+        this.pets.required = true;
+        this.pets.labelname = 'Number of pets';
+        
+        this.favTeacher.required = true;
+        this.favTeacher.labelname = 'Superbowl Pick';
+        
+        var retValue = verify(this);
+		alert(retValue);
+		if (retValue)
+		{
+			disableSubmit();
+		}
+		else
+		{
+			enableSubmit();
+		}
+		return retValue;" method="post" action="http://www.jimlink.net/DelayFiveSeconds.cfm"
+        enctype="multipart/form-data">
+       
+     First name: 
+     <input type="text" name="firstname" />
+     <br /> <br />
+ 
+     Last name: 
+     <input type="text" name="lastname" />
+     <br />  <br />  
+    
+     E-mail Address: 
+     <input type="text" name="email" />
+     <br /> <br />
+    
+     Number of pets in your home: 
+            <select name="pets">
+            <option value="">-- Please select number of pets --</option>
+            <option value="0pet">no pets</option>
+            <option value="1pet">1</option>
+            <option value="2pet">2</option>
+            <option value="3pet">3</option>
+            <option value="4pet">4 or more</option>
+            </select>
+          <br /> <br />
+      Favorite teacher: 
+      (choose one)  <br/>
+
+           <input type="radio" name="favTeacher" value="James Link"  title="required"/>  
+           James Link<br/>
+           <input type="radio" name="favTeacher" value="HS Math Teacher" /> 
+           High School Math Teacher<br/>
+           <input type="radio" name="favTeacher" value="Emmitt Smith" />
+           Emmitt Smith<br/>
+           <input type="radio" name="favTeacher" value="Other" />  
+           Other<br/><br />
+      
+          <br /> <br />
+         <input  onclick=disableSubmit()  type="submit" id="submitButton" /><br />
+        <img  src="images/loadingGraphic.png" id="loadingGraphic" alt="Loading" width="200" height="100" />
+      
+  </form>
+</body>
+</html>

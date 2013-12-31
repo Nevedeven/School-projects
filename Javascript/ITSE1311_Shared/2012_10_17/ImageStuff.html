@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+	<title>Canvas Image</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="html5stuff.css">
+	<script type="text/javascript">
+	    /* <![CDATA[ */
+		function doHTML5stuff()
+		{
+			var c=document.getElementById("myCanvas5");
+			var ctx=c.getContext("2d");
+			var img=new Image();
+			img.onload = function()
+			{
+				ctx.drawImage(img,0,0);
+			};
+			img.src="images/canvas.png";
+		}
+	    /* ]]> */
+	</script>
+</head>
+
+<body onload="doHTML5stuff();">
+	<div id="mainDiv">
+		<h3>HTML5 Canvas: Image</h3>
+		<canvas id="myCanvas5" width="150" height="75" style="border:1px solid #c3c3c3;">
+		Your browser does not support the HTML5 canvas tag.
+		</canvas>
+	</div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Event Fun and Games</title>
+  <script type="text/javascript">
+    /* <![CDATA[ */
+    function showStuff(theString)
+	{
+		alert(theString);
+		alert("The type of the parameter is " + typeof(theString));
+	}
+    /* ]]> */
+  </script>
+</head>
+
+<body onload="showStuff('The page has been loaded!');">
+  <button onclick="showStuff('The button was clicked!');">Click Me!</button>
+</body>
+</html>
+  

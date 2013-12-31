@@ -1,0 +1,22 @@
+body
+{
+	font-family: Arial, sans-serif, monospace;
+	padding: 5% 5% 0% 10%;
+	color: Yellow;
+	background-color: black;
+}
+
+h3
+{
+	font-family:Arial, sans-serif, monospace;
+	color: Yellow;
+	background-color: black;
+	font-size:50%
+}
+
+footer
+{
+	font-family:Arial, sans-serif, monospace;
+	background-color: black;
+	padding: 30% 5% 0% 10%;
+}

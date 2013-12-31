@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+    <title>Form Example</title>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <script type="text/javascript">
+      /* <![CDATA[ */
+      function showFormInfo()
+      {
+        var formInfoString = "";
+        var theElement;
+        
+        formInfoString += "Your name is " + document.getElementById("yourName").value + ".";
+        
+        formInfoString += "\nYour favorite color is ";
+        
+        /*  This is the old way of referring to the radio buttons.  Note that
+            the old way uses the "name" attribute of both the form tag and the
+            input tag to refer to the objects.  This old way only works in
+            certain browsers, including IE:
+        for (var i = 0; i < document.myForm.FavColor.length; i++)
+        {
+          if (document.myForm.FavColor[i].checked == true)
+          {
+            formInfoString += document.myForm.FavColor[i].value;
+            break;
+          }
+        }
+        */
+        
+        /* This is the cross-browser way of referring to the objects, using the
+           "id" attribute of the form tag, and checking the "type" and "name" of
+           the element objects: */
+        for (var i = 0; i < document.getElementById("myForm").elements.length; i++)
+        {
+          theElement = document.getElementById("myForm").elements[i];
+          if ((theElement.type == "radio") && (theElement.name == "FavColor"))
+          {
+            if (theElement.checked == true)
+            {
+              formInfoString += theElement.value;
+              break;
+            }
+          }
+        }
+        
+        formInfoString += ".";
+        
+        formInfoString += "\ni is " + i;
+        
+        alert(formInfoString);
+      }
+      /* ]]> */
+    </script>
+</head>
+
+<body>
+<div align="left">
+  <form 
+    method="post" 
+    action=""
+    name="myForm"
+    id="myForm"
+    onsubmit="showFormInfo(); return false;">
+    Please type your name:<br />
+    <input
+      type="text"
+      name="yourName" id="yourName" />
+    <br/>
+    <br/>
+    Please select your favorite color:<br/>
+    <input type="radio" name="FavColor" value="red" />Red<br />
+    <input type="radio" name="FavColor" value="orange" />Orange<br />
+    <input type="radio" name="FavColor" value="yellow" />Yellow<br />
+    <input type="radio" name="FavColor" value="green" />Green<br />
+    <input type="radio" name="FavColor" value="blue" />Blue<br />
+    <input type="radio" name="FavColor" value="violet" />Violet<br />
+    <br />
+    <br />
+    <input type="submit" value="Send the info" />
+  </form>
+</div>
+</body>
+</html>

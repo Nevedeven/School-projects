@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Seasonal Hub</title>
+  <script type="text/javascript">
+	var season;
+	switch(Date.getMonth()){
+		case "January":
+		case "February":
+		case "March":
+		season = "Winter";
+		break;
+		case "April":
+		case "May":
+		case "June":
+		season = "Spring";
+		break;
+		case "July":
+		case "August":
+		case "September":
+		season = "Summer";
+		break;
+		case "October":
+		case "November":
+		case "December":
+		season = "Fall";
+		break;
+	}
+	function redirect(){
+		switch(season)
+		case "Winter": Window.open();
+		break;
+		case "Spring":Window.open();
+		break;
+		case "Fall":Window.open();
+		break;
+		case "Summer":Window.open();
+		break;
+	}
+	
+  </script>
+</head>
+
+<body onload = "redirect();">
+  <!-- Your HTML content goes inside the body tag, below this comment.  -->
+  <script type="text/javascript">
+    /* <![CDATA[ */
+    // But JavaScript code goes wherever it needs to be, including in the body.
+    /* ]]> */
+  </script>
+</body>
+</html>

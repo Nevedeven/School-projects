@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+    <title>Simple Form Validation</title>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <script type="text/javascript">
+      /* <![CDATA[ */
+      function validateForm(f)
+      {
+        var returnValue = true;
+        
+        if (f.textstuff.value == "")
+        {
+          alert("Please type something in the text input box.");
+          returnValue = false;
+        }
+        
+        if (f.Comments.value == "")
+        {
+          alert("Please type something in the Comments text area.");
+          returnValue = false;
+        }
+        
+        var colorSelected = false;
+        for (var i = 0; i < f.FavoriteColor.length; i++)
+        {
+          if (f.FavoriteColor[i].checked)  // same as (f.FavoriteColor[i].checked == true)
+          {
+            colorSelected = true;
+          }
+        }
+        if (colorSelected == false)
+        {
+          alert("Please select your favorite color.");
+          returnValue = false;
+        }
+        
+        var petSelected = false;
+        for (var i = 0; i < f.Pets.length; i++)
+        {
+          if (document.myForm.Pets[i].checked)
+          {
+            petSelected = true;
+			break;   /* potentially save some time */
+          }
+        }
+        if (!petSelected)
+        {
+          alert("Please tell us what pets you have.");
+          returnValue = false;
+        }
+
+        return returnValue;
+      }
+      /* ]]> */
+    </script>
+</head>
+
+<body>
+<div align="left">
+  <form 
+    name="myForm"
+    id="myForm"
+    method="get" 
+    action="ThankYou.html"
+    onsubmit = "return validateForm(this);">
+    
+    <table border="0" cellpadding="10" cellspacing="0">
+      <tr>
+        <td align="right">Type some text here:</td>
+        <td><input
+              type="text"
+              name="textstuff"
+              size="40"
+              maxlength="40" /></td>
+      </tr>
+      <tr>
+        <td align="right" valign="top">Type some Comments here:</td>
+        <td><textarea name="Comments" cols="30" rows="4"></textarea></td>
+      </tr>
+      <tr>
+        <td align="right" valign="top">Please tell us your favorite color:</td>
+        <td><input type="radio" 
+             name="FavoriteColor" 
+             value="blue" />Blue
+            <br />
+            <input type="radio" 
+             name="FavoriteColor" 
+             value="red" />Red
+            <br />
+            <input type="radio" 
+             name="FavoriteColor" 
+             value="green" />Green</td>
+      </tr>
+      <tr>
+        <td align="right" valign="top">Please tell us what pets you have:</td>
+        <td>
+          <input type="checkbox" 
+               name="Pets" 
+               value="dog" />Dog
+          <br />
+          <input type="checkbox" 
+               name="Pets" 
+               value="cat" />Cat
+          <br />
+          <input type="checkbox" 
+               name="Pets" 
+               value="fish" />Fish
+          <br />
+          <input type="checkbox" 
+               name="Pets" 
+               value="none" />None of the above
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2" align="center">
+          <input type="submit" value="Submit the Form Data" /></td>
+      </tr>
+    </table>
+  </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+	<title>Canvas Rectangle</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="html5stuff.css">
+	<script type="text/javascript">
+	    /* <![CDATA[ */
+		function doHTML5stuff()
+		{
+			var c=document.getElementById("myCanvas");
+			var ctx=c.getContext("2d");
+			ctx.fillStyle="#FF0000";
+			ctx.fillRect(20,20,150,75);
+		}
+	    /* ]]> */
+	</script>
+</head>
+
+<body onload="doHTML5stuff();">
+	<div id="mainDiv">
+		<h3>HTML5 Canvas: Rectangle</h3>
+		<canvas id="myCanvas" width="300" height="200" style="border:1px solid #c3c3c3;">
+		Your browser does not support the HTML5 canvas tag.
+		</canvas>
+	</div>
+</body>
+</html>
